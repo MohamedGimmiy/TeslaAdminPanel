@@ -15,6 +15,9 @@
         </style>
     </head>
     <body>
-        <div id="app"></div>
+        <div id="app">
+            <index></index>
+        </div>
+        <script src="{{mix('js/app.js')}}"></script>
     </body>
 </html>
