@@ -32,6 +32,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
 
@@ -126,9 +127,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-vue__WEBPACK_IMPORTED_MODULE_4__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]);
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js");
+vue__WEBPACK_IMPORTED_MODULE_4__["default"].use(vue_router__WEBPACK_IMPORTED_MODULE_5__["default"]);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -38126,23 +38128,19 @@ var render = function () {
         {
           attrs: {
             dark: "",
-            prominent: "",
             src: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
           },
         },
         [
-          _c("v-app-bar-nav-icon"),
-          _vm._v(" "),
-          _c("v-toolbar-title", [_vm._v("Vuetify")]),
+          _c("v-toolbar-title", [_vm._v("Tesla AP")]),
           _vm._v(" "),
           _c("v-spacer"),
           _vm._v(" "),
-          _c(
-            "v-btn",
-            { attrs: { icon: "" } },
-            [_c("v-icon", [_vm._v("mdi-export")])],
-            1
-          ),
+          _c("v-btn", { staticClass: "mr-3" }, [
+            _vm._v("\n        Categories\n    "),
+          ]),
+          _vm._v(" "),
+          _c("v-btn", [_vm._v("\n        Products\n    ")]),
         ],
         1
       ),
@@ -38221,7 +38219,11 @@ var render = function () {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_c("app-navigator-vue"), _vm._v(" "), _c("router-view")], 1)
+  return _c(
+    "v-app",
+    [_c("app-navigator-vue"), _vm._v(" "), _c("router-view")],
+    1
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

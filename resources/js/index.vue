@@ -1,8 +1,8 @@
 <template>
-    <div>
+    <v-app>
         <app-navigator-vue />
         <router-view></router-view>
-    </div>
+    </v-app>
 </template>
 
 <script>
