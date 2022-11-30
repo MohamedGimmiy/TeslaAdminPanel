@@ -1,4 +1,5 @@
 import Home from './components/Home.vue';
+import Category from '../js/screens/category/categories.vue';
 
 
 export default{
@@ -7,6 +8,10 @@ export default{
         {
             path: '/',
             component: Home
-        }
+        },
+        {
+            path: '/categories',
+            component: Category
+       }
     ]
 }

@@ -1,6 +1,6 @@
-<template>
-    <v-app>
-        <app-navigator-vue />
+<template >
+    <v-app style="background-color:black; height:100vh;">
+        <app-navigator-vue> </app-navigator-vue>
         <router-view></router-view>
     </v-app>
 </template>

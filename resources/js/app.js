@@ -10,6 +10,20 @@ import index from './index.vue';
 import AppNavigator from './components/AppNavigator.vue';
 import VueRouter from 'vue-router';
 import vuetify from './vuetify';
+/* import the fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+
+/* import font awesome icon component */
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+/* import specific icons */
+import { faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
+
+/* add icons to the library */
+library.add(faPen, faTrash);
+
+/* add font awesome icon component */
+Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 
 require('./bootstrap');

@@ -1,3 +1,9 @@
 // add vuetify to laravel
 https://codersdiaries.com/blog/laravel-vuetify
 
+// install font awesome
+https://fontawesome.com/docs/web/use-with/vue/add-icons
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/vue-fontawesome@latest-2
+
