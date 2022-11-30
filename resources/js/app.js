@@ -7,7 +7,9 @@
 import Vue from 'vue';
 import routes from './routes.js';
 import index from './index.vue';
+import AppNavigator from './components/AppNavigator.vue';
 import VueRouter from 'vue-router';
+import vuetify from './vuetify';
 
 
 Vue.use(VueRouter);
@@ -37,5 +39,6 @@ const app = new Vue({
     router : new VueRouter(
         routes // short for `routes: routes`
       ),
-    components:{index}
+      vuetify,
+    components:{index, AppNavigator}
 });
