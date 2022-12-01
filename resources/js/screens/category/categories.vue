@@ -23,9 +23,12 @@
       <tbody>
         <tr v-for="category in categories" :key="category.id">
           <td class="text-center">
-            <img
-              src="https://media.istockphoto.com/id/1140204814/photo/tesla-service-center-tesla-designs-and-manufactures-the-model-s-electric-sedan-iv.jpg?s=612x612&w=0&k=20&c=6msgkDdJoKQTMKRtGAbOBW6ecP3IfQi4oIeNmAqzbv4="
-              style="width:100px; height:100px;" alt="">
+            <div v-if="category.image">
+                <img :src="url+'/categories/'+ category.image" alt="" style="width:100px; height:100px;">
+            </div>
+            <div v-else>
+                <img src="https://i0.wp.com/logotaglines.com/wp-content/uploads/2021/02/tesla_logo_tagline-slogan-customer-care.png?fit=2500%2C2500&ssl=1" alt="" style="width:100px; height:100px;">
+            </div>
           </td>
           <td class="text-center">{{ category.name }}</td>
           <td class="text-center">{{ category.order }}</td>
@@ -50,7 +53,8 @@
 export default {
   data() {
     return {
-      categories: []
+      categories: [],
+      url : window.location.origin
     }
   },
   methods: {

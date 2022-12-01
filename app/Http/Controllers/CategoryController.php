@@ -36,7 +36,40 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $result = $request->validate([
+            'name' => 'required',
+            'order' => 'required'
+        ]);
+
+        if($request->image){
+
+            $image = $request->image;
+
+            $image_new_name = time(). $image->getClientOriginalName();
+            $image->move('categories/', $image_new_name);
+
+            $result += ['image' => $image_new_name];
+
+
+
+            Category::create($result);
+
+            return response()->json([
+                'name' => $result['name'],
+                'order' => $result['order'],
+                'image' => $image_new_name,
+                'status' => 201
+            ]);
+        }
+
+        Category::create($result);
+
+        return response()->json([
+            'name' => $result['name'],
+            'order' => $result['order'],
+            'status' => 201
+        ]);
     }
 
     /**
