@@ -1,17 +1,23 @@
 import Home from './components/Home.vue';
 import Category from '../js/screens/category/categories.vue';
+import addCategory from '../js/screens/category/addCategory.vue';
 
 
 export default{
     mode: 'history',
     routes: [
         {
-            path: '/',
+            path: '/admin',
             component: Home
         },
         {
-            path: '/categories',
+            path: '/admin/categories',
             component: Category
-       }
+        },
+        {
+            path: '/admin/addCategory',
+            component: addCategory
+        },
+
     ]
 }

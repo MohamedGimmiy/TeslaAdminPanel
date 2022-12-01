@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     getCategories() {
-      axios.get('api/categories').then(res => {
+      axios.get('http://localhost:8000/api/categories').then(res => {
         if (res.status == 200) {
           this.categories = res.data.categories
         }

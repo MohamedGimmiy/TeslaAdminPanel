@@ -9,10 +9,13 @@
 
         <v-spacer></v-spacer>
 
-        <v-btn class="mr-3">
+        <v-btn class="mr-3"  @click="() => this.$router.push('/admin/addCategory')">
+            Add Category
+        </v-btn>
+        <v-btn class="mr-3" @click="() => this.$router.push('/admin/categories')">
             Categories
         </v-btn>
-        <v-btn >
+        <v-btn  @click="() => this.$router.push('products')">
             Products
         </v-btn>
       </v-toolbar>
