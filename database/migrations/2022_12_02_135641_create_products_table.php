@@ -16,12 +16,11 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->charset ='utf8';
             $table->collation = 'utf8_unicode_ci';
-
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('price');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

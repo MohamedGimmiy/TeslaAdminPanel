@@ -35,7 +35,30 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $result = $request->validate([
+            'name' => 'required',
+            'price' => 'required'
+        ]);
+
+        $image_new_name = '';
+        if($request->image){
+
+            $image = $request->image;
+            $image_new_name = time(). $image->getClientOriginalName();
+            $image->move('products/', $image_new_name);
+            $result += ['image' => $image_new_name];
+        }
+        if($request->description){
+            $result +=['description' => $request->description];
+        }
+        Product::create($result);
+        return response()->json([
+            'name' => $result['name'],
+            'order' => $result['price'],
+            'image' => $image_new_name,
+            'description' => $request->description? $request->description: '',
+            'status' => 201
+        ]);
     }
 
     /**

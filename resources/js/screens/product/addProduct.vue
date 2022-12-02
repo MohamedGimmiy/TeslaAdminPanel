@@ -9,7 +9,7 @@
                     <v-textarea v-model="description" dark name="description" label="Enter Description..."
                         ></v-textarea>
 
-                    <v-text-field v-model="price" name="price" label="Price" required dark></v-text-field>
+                    <v-text-field  v-model="price" name="price" label="Price" required dark></v-text-field>
 
                     <v-row class="mb-2">
                         <font-awesome-icon icon="camera" class="white--text mt-4 ml-2"
@@ -32,12 +32,25 @@ export default {
     data: function () {
         return {
             name: '',
-            price: '',
-            image: '',
+            price: null,
+            image: [],
             description: ''
 
         };
-    }
+    },
+    methods: {
+        submitForm(){
+        const formData = new FormData();
+            formData.append("name", this.name);
+            formData.append("price", this.price);
+            formData.append("image", this.image);
+            formData.append("description", this.description);
+            axios.post('http://localhost:8000/api/add/product', formData).then(res => {
+                if (res.status == 200) {
+                    this.$router.push('products');
+                }
+            })
+    }}
 }
 </script>
 

@@ -42,6 +42,7 @@ class CategoryController extends Controller
             'order' => 'required'
         ]);
 
+        $image_new_name = '';
         if($request->image){
 
             $image = $request->image;
@@ -51,23 +52,13 @@ class CategoryController extends Controller
 
             $result += ['image' => $image_new_name];
 
-
-
-            Category::create($result);
-
-            return response()->json([
-                'name' => $result['name'],
-                'order' => $result['order'],
-                'image' => $image_new_name,
-                'status' => 201
-            ]);
         }
-
+        
         Category::create($result);
-
         return response()->json([
             'name' => $result['name'],
             'order' => $result['order'],
+            'image' => $image_new_name,
             'status' => 201
         ]);
     }
