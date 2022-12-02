@@ -18,6 +18,9 @@
         <v-btn  @click="() => this.$router.push('products')">
             Products
         </v-btn>
+        <v-btn class="mr-3">
+            Add Products
+        </v-btn>
       </v-toolbar>
     </div>
   </template>
