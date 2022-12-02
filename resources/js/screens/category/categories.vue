@@ -33,12 +33,12 @@
           <td class="text-center">{{ category.name }}</td>
           <td class="text-center">{{ category.order }}</td>
           <td class="text-center">
-            <v-btn class="mx-2" fab dark large color="cyan">
+            <v-btn class="mx-2" fab dark large color="cyan"  v-on:click="$router.push({name: 'editCategory', params: {category}})">
                 <font-awesome-icon style="color:white;" icon="pen" />
             </v-btn>
           </td>
           <td class="text-center">
-            <v-btn class="mx-2" fab dark large color="red">
+            <v-btn class="mx-2" fab dark large color="red" v-on:click="deleteCategory(category)">
                 <font-awesome-icon icon="trash" />
             </v-btn>
           </td>
@@ -62,6 +62,15 @@ export default {
       axios.get('http://localhost:8000/api/categories').then(res => {
         if (res.status == 200) {
           this.categories = res.data.categories
+        }
+      });
+    },
+    deleteCategory(category){
+      axios.delete('http://localhost:8000/api/deleted/category/' + category.id).then(res => {
+        if (res.status == 200) {
+            console.log(res);
+            alert(res.data.msg)
+            this.categories = this.getCategories();
         }
       });
     }

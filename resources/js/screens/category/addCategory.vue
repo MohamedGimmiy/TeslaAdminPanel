@@ -42,7 +42,7 @@ export default {
             formData.append("image", this.image);
             axios.post('http://localhost:8000/api/add/category', formData).then(res => {
                 if (res.status == 200) {
-                    console.log(res)
+                    this.$router.push('categories');
                 }
             })
         }

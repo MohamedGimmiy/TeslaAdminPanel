@@ -7,3 +7,5 @@ npm i --save @fortawesome/fontawesome-svg-core
 npm i --save @fortawesome/free-solid-svg-icons
 npm i --save @fortawesome/vue-fontawesome@latest-2
 
+// how to delete a stored image
+https://stackoverflow.com/questions/33842735/how-to-delete-file-from-public-folder-in-laravel-5-1

@@ -101,9 +101,29 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
         //
+        $image_new_name = null;
+        $category = Category::findOrFail($id);
+        $category->name = $request->name;
+        $category->order = $request->order;
+
+        if($request->image && $request->image !== $category->image){
+            $image = $request->image;
+            $image_new_name = time(). $image->getClientOriginalName();
+            $image->move(public_path('categories') . '/', $image_new_name);
+            $category->image = $image_new_name;
+        }
+
+        $category->save();
+
+        return response()->json([
+            'name' => $category->name,
+            'order' => $category->order,
+            'image' => $image_new_name?  $image_new_name: 'empty',
+            'status' => 'success'
+        ]);
     }
 
     /**
@@ -112,8 +132,13 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy( $id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+        return response()->json([
+            'status' => 'success',
+            'msg' => 'category has been deleted successfully!'
+        ]);
     }
 }
