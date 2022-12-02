@@ -129,7 +129,7 @@ class CategoryController extends Controller
         $category->delete();
         return response()->json([
             'status' => 'success',
-            'msg' => 'category has been deleted successfully!'
+            'message' => 'category has been deleted successfully!'
         ]);
     }
 }

@@ -28,9 +28,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     Route::put('update/category/{id}', [CategoryController::class, 'update']);
 
     Route::delete('deleted/category/{id}', [CategoryController::class, 'destroy']);
-
-
-
+    
+    
+    
     Route::get('products', [ProductController::class, 'index']);
     Route::post('add/product', [ProductController::class, 'store']);
+    Route::delete('deleted/product/{id}', [ProductController::class, 'destroy']);
 

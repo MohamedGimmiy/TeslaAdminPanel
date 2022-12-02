@@ -69,8 +69,8 @@ export default {
       axios.delete('http://localhost:8000/api/deleted/category/' + category.id).then(res => {
         if (res.status == 200) {
             console.log(res);
-            alert(res.data.msg)
-            this.categories = this.getCategories();
+            alert(res.data.message)
+            this.getCategories();
         }
       });
     }

@@ -66,6 +66,15 @@ export default {
                     this.products = res.data.products;
                 }
             })
+        },
+        deleteProduct(product){
+            axios.delete('http://localhost:8000/api/deleted/product/' + product.id).then(res => {
+        if (res.status == 200) {
+            console.log(res);
+            this.getProducts();
+            alert(res.data.message)
+        }
+      });
         }
     },
     mounted() {
