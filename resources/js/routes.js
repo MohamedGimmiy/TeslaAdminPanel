@@ -3,6 +3,8 @@ import Category from '../js/screens/category/categories.vue';
 import addCategory from '../js/screens/category/addCategory.vue';
 import editCategory from '../js/screens/category/editCategory.vue';
 
+import addProduct from '../js/screens/product/addProduct.vue';
+
 
 export default{
     mode: 'history',
@@ -24,6 +26,10 @@ export default{
             component: editCategory,
             props: true,
             'name': 'editCategory'
+        },
+        {
+            path: '/admin/addProduct',
+            component: addProduct
         },
 
     ]

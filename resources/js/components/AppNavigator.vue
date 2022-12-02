@@ -15,10 +15,10 @@
         <v-btn class="mr-3" @click="() => this.$router.push('/admin/categories')">
             Categories
         </v-btn>
-        <v-btn  @click="() => this.$router.push('products')">
+        <v-btn  @click="() => this.$router.push('/admin/products')">
             Products
         </v-btn>
-        <v-btn class="mr-3">
+        <v-btn class="ml-3"  @click="() => this.$router.push('/admin/addProduct')">
             Add Products
         </v-btn>
       </v-toolbar>
