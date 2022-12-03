@@ -93,9 +93,29 @@ class ProductController extends Controller
      * @param  \App\Product  $product
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, $id)
     {
-        //
+        $image_new_name = null;
+        $product = Product::findOrFail($id);
+        $product->name = $request->name;
+        $product->price = $request->price;
+        $product->description = $request->description;
+
+        if($request->image && $request->image !== $product->image){
+            $image = $request->image;
+            $image_new_name = time(). $image->getClientOriginalName();
+            $image->move(public_path('products') . '/', $image_new_name);
+            $product->image = $image_new_name;
+        }
+
+        $product->save();
+
+        return response()->json([
+            'name' => $product->name,
+            'price' => $product->price,
+            'image' => $image_new_name?  $image_new_name: 'empty',
+            'status' => 'success'
+        ]);
     }
 
     /**

@@ -40,12 +40,14 @@ export default {
     },
     methods: {
         submitForm(){
-        const formData = new FormData();
-            formData.append("name", this.name);
-            formData.append("price", this.price);
-            formData.append("image", this.image);
-            formData.append("description", this.description);
-            axios.post('http://localhost:8000/api/add/product', formData).then(res => {
+        const form = require('form-data');
+        const forms = new FormData();
+        forms.append("name", this.name);
+        forms.append("price", this.price);
+        forms.append("image", this.image);
+        forms.append("description", this.description);
+            axios.post('http://localhost:8000/api/add/product',
+            forms).then(res => {
                 if (res.status == 200) {
                     this.$router.push('products');
                 }

@@ -5,6 +5,7 @@ import editCategory from '../js/screens/category/editCategory.vue';
 
 import Product from '../js/screens/product/products.vue';
 import addProduct from '../js/screens/product/addProduct.vue';
+import editProduct from '../js/screens/product/editProduct.vue';
 
 
 export default{
@@ -35,6 +36,12 @@ export default{
         {
             path: '/admin/products',
             component: Product
+        },
+        {
+            path: '/admin/editProduct',
+            component: editProduct,
+            props: true,
+            'name': 'editProduct'
         },
 
     ]
