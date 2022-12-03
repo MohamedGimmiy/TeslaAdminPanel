@@ -9,6 +9,8 @@ import editProduct from '../js/screens/admin/product/editProduct.vue';
 
 import HomePage from '../js/screens/client/Home.vue';
 
+import Login from '../js/screens/auth/Login.vue';
+
 export default{
     mode: 'history',
     routes: [
@@ -47,6 +49,10 @@ export default{
         {
             path: '/home',
             component: HomePage
+        },
+        {
+            path: '/login',
+            component: Login
         }
 
     ]
