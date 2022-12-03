@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import AppNavigatorVue from './components/AppNavigator.vue';
+import AppNavigatorVue from './components/admin/AppNavigator.vue';
 export default {
     components:{
         AppNavigatorVue

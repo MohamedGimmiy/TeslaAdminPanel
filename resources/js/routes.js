@@ -1,12 +1,13 @@
 import Home from './components/Home.vue';
-import Category from '../js/screens/category/categories.vue';
-import addCategory from '../js/screens/category/addCategory.vue';
-import editCategory from '../js/screens/category/editCategory.vue';
+import Category from '../js/screens/admin/category/categories.vue';
+import addCategory from '../js/screens/admin/category/addCategory.vue';
+import editCategory from '../js/screens/admin/category/editCategory.vue';
 
-import Product from '../js/screens/product/products.vue';
-import addProduct from '../js/screens/product/addProduct.vue';
-import editProduct from '../js/screens/product/editProduct.vue';
+import Product from '../js/screens/admin/product/products.vue';
+import addProduct from '../js/screens/admin/product/addProduct.vue';
+import editProduct from '../js/screens/admin/product/editProduct.vue';
 
+import HomePage from '../js/screens/client/Home.vue';
 
 export default{
     mode: 'history',
@@ -43,6 +44,10 @@ export default{
             props: true,
             'name': 'editProduct'
         },
+        {
+            path: '/home',
+            component: HomePage
+        }
 
     ]
 }

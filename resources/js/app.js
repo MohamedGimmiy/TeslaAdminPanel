@@ -7,7 +7,7 @@
 import Vue from 'vue';
 import routes from './routes.js';
 import index from './index.vue';
-import AppNavigator from './components/AppNavigator.vue';
+import AppNavigator from './components/admin/AppNavigator.vue';
 import VueRouter from 'vue-router';
 import vuetify from './vuetify';
 /* import the fontawesome core */
