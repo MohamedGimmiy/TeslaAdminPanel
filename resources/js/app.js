@@ -17,10 +17,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
-import { faPen, faTrash, faCamera } from '@fortawesome/free-solid-svg-icons'
+import { faPen, faTrash, faCamera, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faPen, faTrash, faCamera);
+library.add(faPen, faTrash, faCamera, faSignOutAlt);
 
 /* add font awesome icon component */
 Vue.component('font-awesome-icon', FontAwesomeIcon)
@@ -52,9 +52,9 @@ Vue.use(VueRouter);
 
 const app = new Vue({
     el: '#app',
+    vuetify,
     router : new VueRouter(
         routes // short for `routes: routes`
       ),
-      vuetify,
     components:{index, AppNavigator}
 });

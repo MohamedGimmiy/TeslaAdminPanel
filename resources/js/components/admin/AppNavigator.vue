@@ -1,5 +1,6 @@
 <template>
     <div>
+
       <v-toolbar
         dark
         src="https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg"
@@ -18,16 +19,28 @@
         <v-btn  @click="() => this.$router.push('/admin/products')">
             Products
         </v-btn>
-        <v-btn class="ml-3"  @click="() => this.$router.push('/admin/addProduct')">
+        <v-btn class="ml-3"  v-on:click="logout()">
             Add Products
+        </v-btn>
+        <v-btn class="mx-3" fab dark meduim color="red"  @click="() => this.$router.push('/admin/addProduct')">
+            <font-awesome-icon icon="sign-out-alt" style="font-size:25px;"></font-awesome-icon>
         </v-btn>
       </v-toolbar>
     </div>
+
   </template>
 
 <script>
 export default {
-
+    methods:{
+        logout(){
+            axois.post('http://localhost:800/api/admin/logout').then(res=>{
+                if(res.status == 200){
+                    this.$router.push({name: 'Login'});
+                }
+            })
+        }
+    }
 }
 </script>
 

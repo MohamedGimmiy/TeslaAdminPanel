@@ -30,8 +30,9 @@
         "@fortawesome/fontawesome-svg-core": "^6.2.1",
         "@fortawesome/free-solid-svg-icons": "^6.2.1",
         "@fortawesome/vue-fontawesome": "^2.0.9",
+        "bootstrap-vue": "^2.23.1",
         "form-data": "^4.0.0",
-        "vue-router": "^3.*",
+        "vue-router": "^3.6.5",
         "vuetify": "^2.6.12"
     }
 }
