@@ -1,15 +1,41 @@
 <template >
     <v-app style="background-color:black; height:100vh;">
-        <app-navigator-vue> </app-navigator-vue>
+        <admin-navigator v-if="authenticated"> </admin-navigator>
+        <client-navigator v-else></client-navigator>
         <router-view></router-view>
     </v-app>
 </template>
 
 <script>
-import AppNavigatorVue from './components/admin/AppNavigator.vue';
+import AdminNavigator from './components/admin/AdminNavigator.vue';
+import ClientNavigator from './components/client/ClientNavigator.vue';
+import EventBus from './eventbus';
 export default {
     components:{
-        AppNavigatorVue
+        AdminNavigator,
+        ClientNavigator
+    },
+    data: function(){
+        return {
+            authenticated: false
+        }
+    },
+    methods:{
+        authCheck(){
+            axios.get('http:localhost:8000/api/user').then(res=> {
+                if(res.status == 200){
+                    this.authenticated = true;
+                }
+            }).catch(e => this.authenticated =false)
+        }
+    },
+    mounted(){
+        var self = this;
+
+        this.authCheck();
+        EventBus.$on('authCheck' , (payload)=> {
+            self.authCheck();
+        })
     }
 }
 </script>

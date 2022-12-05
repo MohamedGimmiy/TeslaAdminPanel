@@ -7,7 +7,7 @@
 import Vue from 'vue';
 import routes from './routes.js';
 import index from './index.vue';
-import AppNavigator from './components/admin/AppNavigator.vue';
+import AdminNavigator from './components/admin/AdminNavigator.vue';
 import VueRouter from 'vue-router';
 import vuetify from './vuetify';
 /* import the fontawesome core */
@@ -56,5 +56,5 @@ const app = new Vue({
     router : new VueRouter(
         routes // short for `routes: routes`
       ),
-    components:{index, AppNavigator}
+    components:{index, AdminNavigator}
 });

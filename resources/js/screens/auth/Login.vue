@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import EventBus from '../../eventbus';
 export default {
     data: function () {
         return {
@@ -40,8 +41,9 @@ export default {
                     axios.get('http://localhost:8000/api/user').then(res=> {
                         if(res.status == 200){
                             if(this.form.email == res.data.email){
+                                EventBus.$emit('authCheck');
                                 this.$router.push('/admin/categories')
-                            } 
+                            }
                         }
                     })
                 });
