@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -68,6 +69,21 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+        ]);
+    }
+
+    public function register(Request $request){
+        $validator = validator($request->all());
+
+        if($validator->fails()){
+            return response()->json([
+                'status' => 'faild'
+            ]);
+        }
+        $this->create($request->only(['email','name', 'password']));
+
+        return response()->json([
+            'status' => 'success'
         ]);
     }
 }

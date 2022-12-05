@@ -2,8 +2,9 @@
   <span>
     <v-app-bar  color="black" dark>
         <v-toolbar-title>
-
-          <v-img src="/assets/tesla.png" height="110px" width="200px"></v-img>
+            <router-link to="/home">
+                <v-img src="/assets/tesla.png" height="110px" width="200px"></v-img>
+            </router-link>
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-btn text class="hidden-sm-and-down white font-weight-bold black--text">Specification</v-btn>

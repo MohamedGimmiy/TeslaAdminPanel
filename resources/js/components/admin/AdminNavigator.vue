@@ -22,7 +22,7 @@
         <v-btn class="ml-3"  v-on:click="logout()">
             Add Products
         </v-btn>
-        <v-btn class="mx-3" fab dark meduim color="red"  @click="() => this.$router.push('/admin/addProduct')">
+        <v-btn class="mx-3" fab dark meduim color="red"  @click="logout()">
             <font-awesome-icon icon="sign-out-alt" style="font-size:25px;"></font-awesome-icon>
         </v-btn>
       </v-toolbar>

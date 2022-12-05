@@ -10,6 +10,7 @@ import editProduct from '../js/screens/admin/product/editProduct.vue';
 import HomePage from '../js/screens/client/Home.vue';
 
 import Login from '../js/screens/auth/Login.vue';
+import Register from '../js/screens/auth/Register.vue';
 
 export default{
     mode: 'history',
@@ -53,6 +54,11 @@ export default{
         {
             path: '/login',
             component: Login
+        }
+        ,
+        {
+            path: '/register',
+            component: Register
         }
 
     ]
