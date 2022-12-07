@@ -39,7 +39,7 @@ class CategoryController extends Controller
 
         $result = $request->validate([
             'name' => 'required',
-            'order' => 'required'
+            'order' => 'required',
         ]);
 
         $image_new_name = '';
@@ -53,7 +53,7 @@ class CategoryController extends Controller
             $result += ['image' => $image_new_name];
 
         }
-        
+
         Category::create($result);
         return response()->json([
             'name' => $result['name'],

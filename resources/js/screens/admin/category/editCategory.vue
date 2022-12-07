@@ -36,7 +36,7 @@ export default {
     },
     methods: {
         submitForm() {
-            axios.put('http://localhost:8000/api/update/category/' + this.category.id, {
+            axios.put('api/update/category/' + this.category.id, {
                 name :this.name,
                 order:this.order,
                 image: this.image

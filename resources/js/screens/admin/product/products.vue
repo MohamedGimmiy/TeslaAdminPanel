@@ -10,6 +10,9 @@
             Name
           </th>
           <th class="text-center">
+            Category Name
+          </th>
+          <th class="text-center">
             Description
           </th>
           <th class="text-center">
@@ -34,6 +37,7 @@
             </div>
           </td>
           <td class="text-center">{{ product.name }}</td>
+          <td class="text-center">{{ product.category.name }}</td>
           <td class="text-center">{{ product.description }}</td>
           <td class="text-center">{{ product.price }}</td>
           <td class="text-center">
@@ -61,14 +65,14 @@ export default {
     },
     methods: {
         getProducts(){
-            axios.get('http://localhost:8000/api/products').then(res=> {
+            axios.get('api/products').then(res=> {
                 if(res.status == 200){
                     this.products = res.data.products;
                 }
             })
         },
         deleteProduct(product){
-            axios.delete('http://localhost:8000/api/deleted/product/' + product.id).then(res => {
+            axios.delete('api/deleted/product/' + product.id).then(res => {
         if (res.status == 200) {
             console.log(res);
             this.getProducts();

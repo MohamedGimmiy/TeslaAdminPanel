@@ -40,7 +40,7 @@ export default {
             formData.append("name", this.name);
             formData.append("order", this.order);
             formData.append("image", this.image);
-            axios.post('http://localhost:8000/api/add/category', formData).then(res => {
+            axios.post('api/add/category', formData).then(res => {
                 if (res.status == 200) {
                     this.$router.push('categories');
                 }

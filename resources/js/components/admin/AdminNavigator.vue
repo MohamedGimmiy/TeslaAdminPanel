@@ -19,7 +19,7 @@
         <v-btn  @click="() => this.$router.push('/admin/products')">
             Products
         </v-btn>
-        <v-btn class="ml-3"  v-on:click="logout()">
+        <v-btn class="ml-3"  @click="() => this.$router.push('/admin/addProduct')">
             Add Products
         </v-btn>
         <v-btn class="mx-3" fab dark meduim color="red"  @click="logout()">
@@ -36,8 +36,10 @@ import EventBus from '../../eventbus';
 export default {
     methods:{
         logout(){
-            axois.post('http://localhost:800/api/admin/logout').then(res=>{
-                if(res.status == 200){
+            axios.post('admin/logout').then(res=>{
+                if(res.status >= 200 && res.status <= 300){
+                    alert('logged out')
+                    localStorage.setItem('auth', 'false');
                     EventBus.$emit('authCheck')
                     this.$router.push({name: 'Login'});
                 }

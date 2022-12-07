@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'admin'], function (){
     Route::post('login', [LoginController::class, 'login']);
     Route::post('register', [RegisterController::class, 'register']);
-    Route::post('logout', [LoginController::class, 'logout']);
+    Route::post('logout', [LoginController::class, 'logout'])->name('logout');
     Auth::routes();
 });
-
 
 
 Route::get('/admin/{any?}', function () {
@@ -30,7 +30,8 @@ Route::get('/admin/{any?}', function () {
 
 Route::get('{any?}', function () {
     return view('welcome');
-})->where('{any?}','.*');
+});
+//->where('{any?}','.*');
 
 
 /* Route::get('/home', 'HomeController@index')->name('home');

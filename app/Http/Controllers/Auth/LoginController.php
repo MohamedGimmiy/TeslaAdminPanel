@@ -40,19 +40,5 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
-    public function login(Request $request){
 
-        $credientials = $request->only('email', 'password');
-
-        if(Auth::attempt($credientials)){
-            // login user
-            return response()->json([
-                'status' => 'success'
-            ]);
-        }
-
-        return response()->json([
-            'status' => 'faild'
-        ]);
-    }
 }

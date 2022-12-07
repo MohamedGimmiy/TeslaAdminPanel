@@ -59,14 +59,14 @@ export default {
   },
   methods: {
     getCategories() {
-      axios.get('http://localhost:8000/api/categories').then(res => {
+      axios.get('api/categories').then(res => {
         if (res.status == 200) {
           this.categories = res.data.categories
         }
       });
     },
     deleteCategory(category){
-      axios.delete('http://localhost:8000/api/deleted/category/' + category.id).then(res => {
+      axios.delete('api/deleted/category/' + category.id).then(res => {
         if (res.status == 200) {
             console.log(res);
             alert(res.data.message)

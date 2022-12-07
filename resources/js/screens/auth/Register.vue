@@ -16,8 +16,9 @@
 
             </v-text-field>
             <v-text-field hide-details color="black" label="Password" type="password" v-model="form.password">
-
             </v-text-field>
+            <v-text-field hide-details color="black" label="password_confirmation" type="password" v-model="form.password_confirmation">
+                </v-text-field>
             <v-card-actions>
                 <v-btn color="dark" dark block rounded class="mt-4" v-on:click="handleRegisteration()">Register</v-btn>
             </v-card-actions>
@@ -33,6 +34,7 @@ export default {
             form: {
                 email: '',
                 password: '',
+                password_confirmation: '',
                 name: '',
                 device_name: 'browser'
             }
@@ -40,9 +42,9 @@ export default {
     },
     methods: {
         handleRegisteration(){
-            axios.get('/sanctum/csrf-cookie').then(response => {
-                axios.post('http://localhost:8000/api/admin/register', this.form).then(res=> {
-                    axios.get('http://localhost:8000/api/user').then(res=> {
+            axios.get('sanctum/csrf-cookie').then(response => {
+                axios.post('admin/register', this.form).then(res=> {
+                    axios.get('api/user').then(res=> {
                         if(res.status == 200){
                             if(this.form.email == res.data.email){
                                 EventBus.$emit('authCheck');
@@ -52,6 +54,11 @@ export default {
                     })
                 });
             });
+        }
+    },
+    mounted(){
+        if(localStorage.getItem('auth') == 'true'){
+            this.$router.push('/admin/products');
         }
     }
 }

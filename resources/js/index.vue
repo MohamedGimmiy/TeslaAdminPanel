@@ -22,9 +22,10 @@ export default {
     },
     methods:{
         authCheck(){
-            axios.get('http:localhost:8000/api/user').then(res=> {
+            axios.get('api/user').then(res=> {
                 if(res.status == 200){
                     this.authenticated = true;
+                    localStorage.setItem('auth', true);
                 }
             }).catch(e => this.authenticated =false)
         }

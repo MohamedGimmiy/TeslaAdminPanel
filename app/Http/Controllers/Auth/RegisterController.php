@@ -72,18 +72,4 @@ class RegisterController extends Controller
         ]);
     }
 
-    public function register(Request $request){
-        $validator = validator($request->all());
-
-        if($validator->fails()){
-            return response()->json([
-                'status' => 'faild'
-            ]);
-        }
-        $this->create($request->only(['email','name', 'password']));
-
-        return response()->json([
-            'status' => 'success'
-        ]);
-    }
 }

@@ -16,6 +16,10 @@ export default{
     mode: 'history',
     routes: [
         {
+            path: '/',
+            component: Login
+        },
+        {
             path: '/admin',
             component: Home
         },
@@ -53,13 +57,14 @@ export default{
         },
         {
             path: '/login',
-            component: Login
+            component: Login,
+            name: 'Login'
         }
         ,
         {
             path: '/register',
-            component: Register
-        }
-
+            component: Register,
+            name: 'Register'
+        },
     ]
 }

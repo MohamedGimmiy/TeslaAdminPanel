@@ -36,18 +36,24 @@ export default {
     },
     methods: {
         handleLogin(){
-            axios.get('/sanctum/csrf-cookie').then(response => {
-                axios.post('http://localhost:8000/admin/login', this.form).then(res=> {
-                    axios.get('http://localhost:8000/api/user').then(res=> {
+            axios.get('sanctum/csrf-cookie').then(response => {
+                    axios.post('admin/login', this.form ).then(res=> {
+                    axios.get('api/user').then(res=> {
                         if(res.status == 200){
                             if(this.form.email == res.data.email){
                                 EventBus.$emit('authCheck');
                                 this.$router.push('/admin/categories')
                             }
                         }
-                    })
+                    });
                 });
             });
+        }
+    },
+    mounted(){
+        if(localStorage.getItem('auth') == 'true'){
+            console.log('authorized')
+            this.$router.push('/admin/products');
         }
     }
 }

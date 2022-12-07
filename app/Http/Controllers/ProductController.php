@@ -14,7 +14,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with('category')->get();
         return response()->json([
             'products' => $products
         ]);
@@ -40,7 +40,8 @@ class ProductController extends Controller
     {
         $result = $request->validate([
             'name' => 'required',
-            'price' => 'required'
+            'price' => 'required',
+            'category_id' => 'required'
         ]);
 
         $image_new_name = '';
@@ -51,6 +52,7 @@ class ProductController extends Controller
             $image->move('products/', $image_new_name);
             $result += ['image' => $image_new_name];
         }
+
         if($request->description){
             $result +=['description' => $request->description];
         }
@@ -58,9 +60,11 @@ class ProductController extends Controller
         return response()->json([
             'name' => $result['name'],
             'order' => $result['price'],
+            'category_id' => $result['category_id'],
             'image' => $image_new_name,
             'description' => $request->description? $request->description: '',
             'status' => 201
+
         ]);
     }
 
@@ -100,6 +104,7 @@ class ProductController extends Controller
         $product->name = $request->name;
         $product->price = $request->price;
         $product->description = $request->description;
+        $product->category_id = $request->category_id;
 
         if($request->image && $request->image !== $product->image){
             $image = $request->image;
