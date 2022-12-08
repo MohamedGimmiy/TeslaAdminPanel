@@ -18,6 +18,10 @@
             <v-card-actions>
                 <v-btn color="dark" dark block rounded class="mt-4" v-on:click="handleLogin()">Login</v-btn>
             </v-card-actions>
+            <div>
+                Not a member!
+                <a href="/register"  style="text-decoration: none; font-style: none;">Register Now!</a>
+            </div>
         </v-card>
     </div>
 </template>

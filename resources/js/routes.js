@@ -8,6 +8,7 @@ import addProduct from '../js/screens/admin/product/addProduct.vue';
 import editProduct from '../js/screens/admin/product/editProduct.vue';
 
 import HomePage from '../js/screens/client/Home.vue';
+import Shop from '../js/screens/client/shop/Shop.vue';
 
 import Login from '../js/screens/auth/Login.vue';
 import Register from '../js/screens/auth/Register.vue';
@@ -66,5 +67,10 @@ export default{
             component: Register,
             name: 'Register'
         },
+        {
+            path: '/shop',
+            component: Shop,
+            name: 'Shop'
+        }
     ]
 }

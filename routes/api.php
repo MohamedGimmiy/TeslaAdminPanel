@@ -37,5 +37,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     Route::put('update/product/{id}', [ProductController::class, 'update']);
     Route::delete('deleted/product/{id}', [ProductController::class, 'destroy']);
 
+    Route::get('lastestProducts', [ProductController::class, 'latestProducts']);
 
 

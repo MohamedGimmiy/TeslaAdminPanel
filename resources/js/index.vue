@@ -1,6 +1,6 @@
 <template >
     <v-app style="background-color:black; height:100vh;">
-        <admin-navigator v-if="authenticated"> </admin-navigator>
+        <admin-navigator v-if="(authenticated && is_admin)"> </admin-navigator>
         <client-navigator v-else></client-navigator>
         <router-view></router-view>
     </v-app>
@@ -17,7 +17,8 @@ export default {
     },
     data: function(){
         return {
-            authenticated: false
+            authenticated: false,
+            is_admin: false
         }
     },
     methods:{
@@ -26,8 +27,14 @@ export default {
                 if(res.status == 200){
                     this.authenticated = true;
                     localStorage.setItem('auth', true);
+                    this.is_admin = res.data.is_admin
                 }
-            }).catch(e => this.authenticated =false)
+                else
+                    localStorage.setItem('auth', false);
+            }).catch(e => {
+                this.authenticated =false;
+                localStorage.setItem('auth', false);
+            })
         }
     },
     mounted(){
