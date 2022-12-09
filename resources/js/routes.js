@@ -8,7 +8,9 @@ import addProduct from '../js/screens/admin/product/addProduct.vue';
 import editProduct from '../js/screens/admin/product/editProduct.vue';
 
 import HomePage from '../js/screens/client/Home.vue';
+
 import Shop from '../js/screens/client/shop/Shop.vue';
+import productDetails from '../js/screens/client/shop/productDetails.vue';
 
 import Login from '../js/screens/auth/Login.vue';
 import Register from '../js/screens/auth/Register.vue';
@@ -71,6 +73,13 @@ export default{
             path: '/shop',
             component: Shop,
             name: 'Shop'
-        }
+        },
+        {
+            path: '/shop/productDetails',
+            component: productDetails,
+            props: true,
+            name: 'productDetails'
+        },
+
     ]
 }

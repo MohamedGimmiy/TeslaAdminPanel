@@ -10,7 +10,7 @@
         <v-btn text class="hidden-sm-and-down white font-weight-bold black--text"
         @click="() => this.$router.push({name: 'Shop'})">Shop</v-btn>
         <v-btn  class="hidden-sm-and-down white font-weight-bold black--text ml-3">Order Now</v-btn>
-        <v-btn v-if="auth" class="mx-3" fab dark meduim color="red"  @click="logout()">
+        <v-btn  class="mx-3" fab dark meduim color="red"  @click="logout()">
             <font-awesome-icon icon="sign-out-alt" style="font-size:25px;"></font-awesome-icon>
         </v-btn>
     </v-app-bar>

@@ -22,7 +22,7 @@ class ProductController extends Controller
 
     public function latestProducts(){
 
-        $products = Product::with('category')->latest('updated_at', 'desc')->take(4)->get();
+        $products = Product::with('category')->latest('updated_at', 'desc')->take(6)->get();
         //$products = Product::orderBy('created_at', 'desc')->take(4)->get();
 
         return response()->json([
