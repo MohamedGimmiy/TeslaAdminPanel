@@ -12,7 +12,7 @@
                             </p>
                             <v-card-actions class="pa-0">
                                 <p class="headline font-weight-light pt-3">
-                                    {{product.price}}
+                                    {{product.price}} $
                                 </p>
                                 <v-spacer></v-spacer>
                             </v-card-actions>

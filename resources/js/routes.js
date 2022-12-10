@@ -11,6 +11,7 @@ import HomePage from '../js/screens/client/Home.vue';
 
 import Shop from '../js/screens/client/shop/Shop.vue';
 import productDetails from '../js/screens/client/shop/productDetails.vue';
+import CategoryProducts from '../js/screens/client/shop/CategoryProducts.vue';
 
 import Login from '../js/screens/auth/Login.vue';
 import Register from '../js/screens/auth/Register.vue';
@@ -80,6 +81,11 @@ export default{
             props: true,
             name: 'productDetails'
         },
-
+        {
+            path: '/shop/category/products',
+            component: CategoryProducts,
+            props: true,
+            name: 'CategoryProducts'
+        }
     ]
 }

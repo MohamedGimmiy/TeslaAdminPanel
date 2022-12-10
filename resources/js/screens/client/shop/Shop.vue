@@ -30,7 +30,7 @@
                         gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)">
                         <h1 class="text-center font-size">{{ category.name }}</h1>
                         <div class="text-center">
-                            <v-btn href="" class="white--text" outlined>View Products</v-btn>
+                            <v-btn @click="() =>{navigateToCategoryScreen(category)}" class="white--text" outlined>View Products</v-btn>
                         </div>
                     </v-img>
                 </v-card>
@@ -44,7 +44,7 @@
                         gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)">
                         <h1 class="text-center font-size">{{ category.name }}</h1>
                         <div class="text-center">
-                            <v-btn href="" class="white--text" outlined>View Product</v-btn>
+                            <v-btn @click="() =>{navigateToCategoryScreen(category)}" class="white--text" outlined>View Product</v-btn>
                         </div>
                     </v-img>
                 </v-card>
@@ -111,6 +111,9 @@ export default {
                     this.products = res.data.products
                 }
             })
+        },
+        navigateToCategoryScreen(category){
+            this.$router.push({ name: 'CategoryProducts', query: { category } })
         }
     },
     mounted() {
