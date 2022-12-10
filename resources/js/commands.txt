@@ -13,3 +13,10 @@ https://stackoverflow.com/questions/33842735/how-to-delete-file-from-public-fold
 
 // vue loader
 npm i vue-loader
+
+
+// install vuex
+npm i vuex --save , --legacy-peer-deps
+
+// to persist state
+npm install --save vuex-persistedstate , --legacy-peer-deps

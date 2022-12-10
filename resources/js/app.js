@@ -10,6 +10,9 @@ import index from './index.vue';
 import AdminNavigator from './components/admin/AdminNavigator.vue';
 import VueRouter from 'vue-router';
 import vuetify from './vuetify';
+
+import coreState from './coreState.js';
+
 /* import the fontawesome core */
 import { library } from '@fortawesome/fontawesome-svg-core'
 
@@ -55,6 +58,7 @@ const app = new Vue({
     vuetify,
     router : new VueRouter(
         routes // short for `routes: routes`
-      ),
-    components:{index, AdminNavigator}
+        ),
+        components:{index, AdminNavigator},
+        store: coreState,
 });

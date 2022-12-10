@@ -12,12 +12,13 @@
                             </p>
                             <v-card-actions class="pa-0">
                                 <p class="headline font-weight-light pt-3">
-                                    {{product.price}} $
+                                    ${{product.price}}
                                 </p>
                                 <v-spacer></v-spacer>
                             </v-card-actions>
                             <p class="subtitle-1 font-weight-thin">{{product.description}}</p>
-                            <v-btn class="primary white--text" outlined tile dense>ADD TO CART</v-btn>
+                            <v-btn class="primary white--text" outlined tile dense
+                             @click="() => addItemToCart(product)">ADD TO CART</v-btn>
                         </div>
                     </div>
                 </div>
@@ -47,7 +48,7 @@
                                                 <v-card-title>{{productItem.name}}</v-card-title>
                                             </v-img>
                                             <v-card-text class="text-primary text-center">
-                                                <div>{{productItem.price}}</div>
+                                                <div>${{productItem.price}}</div>
                                                 <div>{{productItem.category.name}}</div>
                                             </v-card-text>
                                             <div class="text-center">
@@ -84,6 +85,10 @@ export default {
                     this.products = res.data.products;
                 }
             })
+        },
+        addItemToCart(product){
+            this.$store.dispatch('addItemToCart', product)
+            console.log(JSON.stringify(this.$store.getters.getCartItems));
         }
     },
     mounted(){

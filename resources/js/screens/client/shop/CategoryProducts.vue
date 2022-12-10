@@ -39,7 +39,7 @@
                                     </v-img>
                                     <v-card-text class="text-primary" style="margin-bottom:-8px;">{{product.name}}</v-card-text>
                                     <v-card-text class="text--primary">
-                                        <div>{{product.price}}$</div>
+                                        <div>${{product.price}}</div>
                                     </v-card-text>
                                 </v-card>
                             </v-hover>

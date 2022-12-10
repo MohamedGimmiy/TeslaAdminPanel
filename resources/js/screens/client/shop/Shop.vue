@@ -68,7 +68,7 @@
                                             <v-card-title>{{ product.name }}</v-card-title>
                                         </v-img>
                                         <v-card-text class="text-primary text-center">
-                                            <div>{{ product.price }}</div>
+                                            <div>${{ product.price }}</div>
                                             <div>{{ product.category.name }}</div>
                                         </v-card-text>
                                         <div class="text-center">
